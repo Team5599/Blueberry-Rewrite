@@ -9,7 +9,7 @@
 package com.sentinels.robot.commands.driving;
 
 import com.sentinels.robot.subsystems.drive.Drivetrain;
-import com.sentinels.robot.constants.Constants;
+import com.sentinels.robot.constants.Settings;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -30,7 +30,7 @@ public class DrivetrainDrive extends CommandBase {
     this.drivetrain = drivetrain;
     this.driver = driver;
     this.arcadeDriveActive = arcadeDriveActive;
-    this.driveSpeedCap = Constants.Drivetrain.kDriveSpeedCap;
+    this.driveSpeedCap = Settings.Drivetrain.kDriveSpeedCap;
 
     addRequirements(drivetrain);
   }

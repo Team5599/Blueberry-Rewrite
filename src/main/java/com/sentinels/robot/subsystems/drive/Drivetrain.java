@@ -8,7 +8,7 @@
 
 package com.sentinels.robot.subsystems.drive;
 
-import com.sentinels.robot.constants.Constants.Ports;
+import com.sentinels.robot.constants.Ports;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.RobotController;
@@ -20,10 +20,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
 
-  private final Spark motorFL = new Spark(Ports.FRONTLEFT);
-  private final Spark motorFR = new Spark(Ports.FRONTRIGHT);
-  private final Spark motorBL = new Spark(Ports.BACKLEFT);
-  private final Spark motorBR = new Spark(Ports.BACKRIGHT);
+  private final Spark motorFL = new Spark(Ports.Drivetrain.FRONTLEFT);
+  private final Spark motorFR = new Spark(Ports.Drivetrain.FRONTRIGHT);
+  private final Spark motorBL = new Spark(Ports.Drivetrain.BACKLEFT);
+  private final Spark motorBR = new Spark(Ports.Drivetrain.BACKRIGHT);
 
   private final MotorControllerGroup leftMotors = new MotorControllerGroup(motorFL, motorBL);
   private final MotorControllerGroup rightMotors = new MotorControllerGroup(motorFR, motorBR); 

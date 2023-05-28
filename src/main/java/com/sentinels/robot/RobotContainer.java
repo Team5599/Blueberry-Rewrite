@@ -5,7 +5,7 @@
 package com.sentinels.robot;
 
 import com.sentinels.robot.commands.autonomous.Autos;
-import com.sentinels.robot.constants.Constants.Ports;
+import com.sentinels.robot.constants.Ports;
 import com.sentinels.robot.subsystems.drive.Drivetrain;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -20,8 +20,8 @@ public class RobotContainer {
   private final Drivetrain drivetrain = new Drivetrain();
 
   // Input Devices
-  private final CommandXboxController driver = new CommandXboxController(Ports.kDriverController);
-  private final CommandJoystick operator = new CommandJoystick(Ports.kOperatorController);
+  private final CommandXboxController driver = new CommandXboxController(Ports.Controllers.kDriverController);
+  private final CommandJoystick operator = new CommandJoystick(Ports.Controllers.kOperatorController);
 
   // Autonomous
   private static SendableChooser<Command> autonChooser = new SendableChooser<>();

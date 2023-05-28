@@ -9,7 +9,7 @@
 package com.sentinels.robot.commands.autonomous.driving;
 
 import com.sentinels.robot.subsystems.drive.Drivetrain;
-import com.sentinels.robot.constants.Constants;
+import com.sentinels.robot.constants.Settings;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -22,7 +22,7 @@ public class AutonTimedDrive extends CommandBase {
   public AutonTimedDrive(Drivetrain drivetrain, boolean reverseEnabled) {
     this.drivetrain = drivetrain;
     this.reverseEnabled = reverseEnabled;
-    this.timedDriveVoltage = Constants.Drivetrain.kTimedDriveVoltage;
+    this.timedDriveVoltage = Settings.Drivetrain.kTimedDriveVoltage;
 
     addRequirements(drivetrain);
   }
