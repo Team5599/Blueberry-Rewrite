@@ -11,6 +11,7 @@ package com.sentinels.robot.subsystems.shooter;
 import com.sentinels.robot.constants.Ports;
 import com.sentinels.robot.util.RoboRIO;
 
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -21,15 +22,24 @@ public class Shooter extends SubsystemBase {
     private final Spark motorShooterR = new Spark(Ports.Shooter.SHOOTERRIGHT);
     private final Spark motorShooterB = new Spark(Ports.Shooter.SHOOTERBACK);
 
+    private final MotorControllerGroup shooterMotors = new MotorControllerGroup(motorShooterL, motorShooterR);
+
     public Shooter() {}
 
     public void shooterShoot(double speed) {
-        motorShooterL.set(speed);
-        motorShooterR.set(speed);
+        shooterMotors.set(speed);
+    }
+
+    public void shooterPush(double speed) {
+        motorShooterB.set(speed);
     }
     
-    public void shooeterStop() {
-        motorShooterL.stopMotor();
+    public void shooterStop() {
+        shooterMotors.stopMotor();
+    }
+
+    public void pushStop() {
+        motorShooterB.stopMotor();
     }
 
     public double getLeftVoltage() {

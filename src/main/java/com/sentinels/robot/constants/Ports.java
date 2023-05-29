@@ -26,6 +26,12 @@ public interface Ports {
     int kOperatorController = 1;
   }
 
+  public interface Climber {
+    // Solenoids
+    int SOLENOIDPUSH = 0;
+    int SOLENOIDPULL = 1;
+  }
+
   public interface Shooter {
     // Motors
     int SHOOTERLEFT = 6;

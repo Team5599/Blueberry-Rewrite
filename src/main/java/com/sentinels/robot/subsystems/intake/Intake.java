@@ -35,7 +35,7 @@ public class Intake extends SubsystemBase {
 
     @Override
     public void periodic() {
-        SmartDashboard.putNumber("Intake Motor Voltage (V)", getIntakeVoltage());
+        SmartDashboard.putNumber("Intake/Motor Voltage (V)", getIntakeVoltage());
     }
 
     @Override

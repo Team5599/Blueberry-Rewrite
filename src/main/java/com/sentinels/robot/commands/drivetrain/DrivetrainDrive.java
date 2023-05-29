@@ -6,7 +6,7 @@
     Copyright (c) 2023 The Sentinels. All rights reserved.
 ***************************************************************/
 
-package com.sentinels.robot.commands.driving;
+package com.sentinels.robot.commands.drivetrain;
 
 import com.sentinels.robot.subsystems.drive.Drivetrain;
 import com.sentinels.robot.constants.Settings;
