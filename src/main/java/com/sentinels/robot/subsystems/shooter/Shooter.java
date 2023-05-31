@@ -21,10 +21,15 @@ public class Shooter extends SubsystemBase {
     private final Spark motorShooterL = new Spark(Ports.Shooter.SHOOTERLEFT);
     private final Spark motorShooterR = new Spark(Ports.Shooter.SHOOTERRIGHT);
     private final Spark motorShooterB = new Spark(Ports.Shooter.SHOOTERBACK);
+    private final Spark motorShooterP = new Spark(Ports.Shooter.SHOOTERPIVOT);
 
     private final MotorControllerGroup shooterMotors = new MotorControllerGroup(motorShooterL, motorShooterR);
 
     public Shooter() {}
+
+    public void shooterPivot(double speed) {
+        motorShooterP.set(speed);
+    } 
 
     public void shooterShoot(double speed) {
         shooterMotors.set(speed);
@@ -32,6 +37,10 @@ public class Shooter extends SubsystemBase {
 
     public void shooterPush(double speed) {
         motorShooterB.set(speed);
+    }
+
+    public void pivotStop() {
+        motorShooterP.stopMotor();
     }
     
     public void shooterStop() {

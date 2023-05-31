@@ -37,6 +37,7 @@ public interface Ports {
     int SHOOTERLEFT = 6;
     int SHOOTERRIGHT = 7;
     int SHOOTERBACK = 8;
+    int SHOOTERPIVOT = 9;
   }
   
   public interface Intake {

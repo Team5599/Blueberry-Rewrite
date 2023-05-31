@@ -12,12 +12,12 @@ import com.sentinels.robot.subsystems.climber.Climber;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ClimberExtend extends CommandBase {
+public class ClimberRetract extends CommandBase {
 @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
 
   private final Climber climber;
 
-  public ClimberExtend(Climber climber) {
+  public ClimberRetract(Climber climber) {
     this.climber = climber;
 
     addRequirements(climber);
@@ -28,7 +28,7 @@ public class ClimberExtend extends CommandBase {
 
   @Override
   public void execute() {
-    climber.climberExtend();
+    climber.climberRetract();
   }
 
   @Override
