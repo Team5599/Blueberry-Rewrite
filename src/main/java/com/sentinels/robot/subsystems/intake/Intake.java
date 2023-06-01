@@ -19,6 +19,8 @@ public class Intake extends SubsystemBase {
 
     private final PWMSparkMax motorIntake = new PWMSparkMax(Ports.Intake.INTAKE);
 
+    private boolean isSpinning = false;
+
     public Intake() {}
 
     public void intakeSpin(double speed) {
@@ -29,6 +31,22 @@ public class Intake extends SubsystemBase {
         motorIntake.stopMotor();
     }
 
+    /**
+     * @return {@code true} or {@code false} value of {@code isSpinning} value
+     */
+    public boolean getIsSpinning() {
+        return(isSpinning);
+    }
+
+    /**
+     * Sets intake object instance variable {@code isSpinning} to true or false in order for the intake toggle function to work properly. 
+     * 
+     * @param isSpinning
+     */
+    public void setIsSpinning(boolean isSpinning) {
+        this.isSpinning = isSpinning;
+    }
+
     public double getIntakeVoltage() {
         return (motorIntake.get() * RoboRIO.getBatteryVoltage());
     }
@@ -36,6 +54,8 @@ public class Intake extends SubsystemBase {
     @Override
     public void periodic() {
         SmartDashboard.putNumber("Intake/Motor Voltage (V)", getIntakeVoltage());
+
+        SmartDashboard.putNumber("Intake/Motor Set Speed [-1,1]:", motorIntake.get());
     }
 
     @Override

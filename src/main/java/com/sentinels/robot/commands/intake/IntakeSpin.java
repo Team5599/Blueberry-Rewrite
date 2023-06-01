@@ -8,7 +8,6 @@
 
 package com.sentinels.robot.commands.intake;
 
-import com.sentinels.robot.constants.Settings;
 import com.sentinels.robot.subsystems.intake.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -32,13 +31,19 @@ public class IntakeSpin extends CommandBase {
 
   @Override
   public void execute() {
-    
+    if (operator.button(0).getAsBoolean()) {
+      if (intake.getIsSpinning()) {
+        intake.intakeStop();
+        intake.setIsSpinning(false);
+      } else {
+        intake.intakeSpin(0.10);
+        intake.setIsSpinning(true);
+      }
+    }
   }
-
+  
   @Override
-  public void end(boolean interrupted) {
-    intake.intakeStop();
-  }
+  public void end(boolean interrupted) {}
 
   @Override
   public boolean isFinished() {

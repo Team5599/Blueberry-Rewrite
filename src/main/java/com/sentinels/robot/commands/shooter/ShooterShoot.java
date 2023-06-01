@@ -8,7 +8,6 @@
 
 package com.sentinels.robot.commands.shooter;
 
-import com.sentinels.robot.constants.Settings;
 import com.sentinels.robot.subsystems.shooter.Shooter;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -32,7 +31,9 @@ public class ShooterShoot extends CommandBase {
 
   @Override
   public void execute() {
-    
+    if (operator.button(1).getAsBoolean()) {
+      shooter.shooterShoot(0.5);
+    }
   }
 
   @Override

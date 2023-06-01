@@ -5,13 +5,17 @@
 package com.sentinels.robot;
 
 import com.sentinels.robot.commands.autonomous.Autos;
+import com.sentinels.robot.commands.climber.ClimberExtend;
+import com.sentinels.robot.commands.climber.ClimberRetract;
 import com.sentinels.robot.commands.drivetrain.DrivetrainDrive;
 import com.sentinels.robot.commands.intake.IntakeSpin;
+import com.sentinels.robot.commands.shooter.ShooterPivot;
+import com.sentinels.robot.commands.shooter.ShooterPush;
 import com.sentinels.robot.commands.shooter.ShooterShoot;
 import com.sentinels.robot.constants.Ports;
 import com.sentinels.robot.constants.Settings;
-import com.sentinels.robot.subsystems.drive.Drivetrain;
 import com.sentinels.robot.subsystems.climber.Climber;
+import com.sentinels.robot.subsystems.drive.Drivetrain;
 import com.sentinels.robot.subsystems.intake.Intake;
 import com.sentinels.robot.subsystems.shooter.Shooter;
 
@@ -19,6 +23,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RepeatCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
@@ -64,14 +69,17 @@ public class RobotContainer {
 
   private void configureOperatorBindings() {
     // SHOOTER
-
-
+    operator.povUp().whileTrue(new RepeatCommand(new ShooterPivot(shooter, operator)));
+    operator.povDown().whileTrue(new RepeatCommand(new ShooterPivot(shooter, operator)));
+    operator.button(0).onTrue(new ShooterShoot(shooter, operator));
+    operator.button(0).onTrue(new ShooterPush(shooter, operator));
 
     // CLIMBER
-
-
+    operator.button(3).onTrue(new ClimberExtend(climber));
+    operator.button(5).onTrue(new ClimberRetract(climber));
 
     // INTAKE
+    operator.button(0).onTrue(new IntakeSpin(intake, operator));
   }
 
   private void configureDefaultCommands() {

@@ -15,4 +15,16 @@ public interface Settings {
         double kTimedDriveVoltage = 2.5;
         double kTimedDriveTime = 3;
     }
+
+    public interface Climber {
+
+    }
+
+    public interface Intake {
+        
+    }
+
+    public interface Shooter {
+
+    }
 }

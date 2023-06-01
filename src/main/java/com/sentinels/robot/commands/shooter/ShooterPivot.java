@@ -23,7 +23,7 @@ public class ShooterPivot extends CommandBase {
     this.shooter = shooter;
     this.operator = operator;
 
-    addRequirements(shooter);
+    addRequirements (shooter);
   }
 
   @Override
@@ -31,10 +31,10 @@ public class ShooterPivot extends CommandBase {
 
   @Override
   public void execute() {
-    if (operator.button(6).getAsBoolean()) {
-      shooter.shooterPivot(0.10);
+    if (operator.povUp().getAsBoolean()) {
+      shooter.shooterPivot(0.5);
     } else {
-      shooter.shooterPivot(-0.10);
+      shooter.shooterPivot(-0.5);
     }
   }
 
